@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductosController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -14,7 +16,7 @@ use Inertia\Inertia;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return Inertia::render('Welcome', [
@@ -23,7 +25,10 @@ Route::get('/', function () {
         'laravelVersion' => Application::VERSION,
         'phpVersion' => PHP_VERSION,
     ]);
-});
+})->name('home');
+
+Route::get('/sobre-nosotros', [HomeController::class, 'about_get'])->name('about');
+Route::get('/contactanos', [HomeController::class, 'contact_get'])->name('contact');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
@@ -35,4 +40,13 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+// Rutas Crud
+Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
+Route::get('/productos/create', [ProductosController::class, 'create'])->name('productos.create');
+Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
+Route::get('/productos/{id}', [ProductosController::class, 'show'])->name('productos.show');
+Route::get('/productos/{id}/edit', [ProductosController::class, 'edit'])->name('productos.edit');
+Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('productos.update');
+Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
+
+require __DIR__ . '/auth.php';

@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('productos', function (Blueprint $table)
-        {
-            //por defecto se crear la columna id de tipo entero y autoicrementable
-            $table->id();
+        Schema::create('productos', function (Blueprint $table) {
+            $table->id('producto_id');
 
-            //por defecto crea dos columnas (create_at y update_at)
-            //create_at -> hora y fecha de creación
-            //update_at -> hora y fecha de actualización
+            $table->string('nombre', 50);
+            $table->string('marca', 50);
+            $table->double('precio');
+            $table->date('fvencimiento')->nullable();
+            $table->integer('stock')->nullable();
             $table->timestamps();
         });
     }
