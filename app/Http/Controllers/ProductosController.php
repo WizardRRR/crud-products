@@ -47,16 +47,15 @@ class ProductosController extends Controller
             ->with('success', 'Producto creado exitosamente.');
     }
 
-    public function edit(string $id)
+    public function edit($id)
     {
-        $producto = Producto::find($id);
-        return Inertia::render('Producto/Edit', [
-            'producto' => $producto,
-        ]);
+        $producto = Producto::where('producto_id', $id)->first();
+        return response()->json($producto);
     }
 
     public function update(Request $request, string $id)
     {
+        // dd($id);
         $validatedData = $request->validate([
             'nombre' => 'required|max:255',
             'marca' => 'required|max:255',
@@ -64,13 +63,13 @@ class ProductosController extends Controller
             'fvencimiento' => 'required|date',
         ]);
 
-        $producto = Producto::find($id);
+        $producto = Producto::where('producto_id', $id)->first();
         $producto->nombre = $request->nombre;
         $producto->marca = $request->marca;
         $producto->precio = $request->precio;
         $producto->fvencimiento = $request->fvencimiento;
-
         $producto->save();
+        // dd($request->nombre);
 
         return redirect()->route('productos.index')
             ->with('success', 'Producto actualizado exitosamente.');
