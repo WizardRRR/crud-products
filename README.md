@@ -6,18 +6,18 @@ Este proyecto es un ejemplo simple de CRUD (Crear, Leer, Actualizar, Eliminar) c
 
 ### Tecnologías:
 
-<img style="margin-right: 5;" src="https://img.shields.io/badge/Laravel-FF2D20?&logo=laravel&logoColor=white
+<img src="https://img.shields.io/badge/Laravel-FF2D20?&logo=laravel&logoColor=white
   "></img>
-<img style="margin-right: 5;" src="https://img.shields.io/badge/PHP-777BB4?&logo=php&logoColor=white
+<img src="https://img.shields.io/badge/PHP-777BB4?&logo=php&logoColor=white
   "></img>
-<img style="margin-right: 5;" src="https://img.shields.io/badge/React-20232A?&logo=react&logoColor=61DAFB"></img>
-<img style="margin-right: 5;" src="https://img.shields.io/badge/MySQL-005C84?&logo=mysql&logoColor=white
+<img src="https://img.shields.io/badge/React-20232A?&logo=react&logoColor=61DAFB"></img>
+<img src="https://img.shields.io/badge/MySQL-005C84?&logo=mysql&logoColor=white
   "></img>
 
 ### Requisitos:
 
-<img style="margin-right: 5;" src="https://img.shields.io/badge/Composer-885630?&logo=Composer&logoColor=white"></img>
-<img style="margin-right: 5;" src="https://img.shields.io/badge/Node%20js-339933?&logo=nodedotjs&logoColor=white
+<img src="https://img.shields.io/badge/Composer-885630?&logo=Composer&logoColor=white"></img>
+<img src="https://img.shields.io/badge/Node%20js-339933?&logo=nodedotjs&logoColor=white
   "></img>
 
 - Composer
