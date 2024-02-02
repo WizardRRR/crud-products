@@ -1,14 +1,15 @@
-import HomeLayout from '@/Layouts/HomeLayout';
-import { Link } from '@inertiajs/react';
-import React, { useState } from 'react'
-import Ver from './Components/Ver';
-import Crear from './Components/Crear'
+import HomeLayout from '@/Layouts/HomeLayout'
+import { useState } from 'react'
 
-function Index(props) {
-  const [modulo, setModulo] = useState('ver');
+import Crear from './Components/Crear'
+import Ver from './Components/Ver'
+
+export default function Index(props) {
+
+  const [modulo, setModulo] = useState('ver')
   console.log(modulo)
   const handleClick = (name) => {
-    setModulo(name);
+    setModulo(name)
   }
 
   return (
@@ -27,20 +28,10 @@ function Index(props) {
               Añadir Producto
             </button>
           </div>
-          {
-            modulo === 'ver' && (
-              <Ver productos={props.productos} />
-            )
-          }
-          {
-            modulo === 'añadir' && (
-              <Crear setModulo={setModulo} />
-            )
-          }
+          {modulo === 'ver' && <Ver productos={props.productos} />}
+          {modulo === 'añadir' && <Crear setModulo={setModulo} />}
         </div>
       </HomeLayout>
     </>
   )
 }
-
-export default Index
