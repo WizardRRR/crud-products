@@ -1,9 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProductosController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\ProductsController;
 use Illuminate\Support\Facades\Route;
-use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,22 +15,11 @@ use Inertia\Inertia;
  */
 
 Route::get('/', function () {
-  return Inertia::render('Welcome', [
-    'canLogin' => Route::has('login'),
-    'canRegister' => Route::has('register'),
-    'laravelVersion' => Application::VERSION,
-    'phpVersion' => PHP_VERSION,
-  ]);
+  return redirect('/productos');
 })->name('home');
 
-// CRUD
-Route::get('/productos', [ProductosController::class, 'index'])->name('productos.index');
-Route::get('/productos/create', [ProductosController::class, 'create'])->name('productos.create');
-Route::post('/productos', [ProductosController::class, 'store'])->name('productos.store');
+// Enrutamiento
+Route::get('/productos', [ProductsController::class, 'index'])->name('productos.index');
 
-Route::get('/productos/{id}', [ProductosController::class, 'edit'])->name('productos.edit');
-Route::put('/productos/{id}', [ProductosController::class, 'update'])->name('productos.update');
-
-Route::delete('/productos/{id}', [ProductosController::class, 'destroy'])->name('productos.destroy');
 
 require __DIR__ . '/auth.php';
